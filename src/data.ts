@@ -2,6 +2,7 @@ export const profile = {
   name: 'Simon Huang',
   role: 'Software engineer',
   location: 'San Francisco',
+  avatar: '/avatar.jpg',
   tagline: 'Building with AI. Exploring startups, books, and ideas.',
   about: [
     'I write software at the edge of what models make newly possible — products that feel quiet, useful, and a little ahead of the curve.',

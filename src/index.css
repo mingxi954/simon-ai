@@ -4,14 +4,14 @@
   --font-display: "Instrument Serif", Georgia, serif;
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
 
-  --color-ink: #0f1c1a;
-  --color-ink-soft: #243532;
-  --color-mist: #e7eeeb;
-  --color-paper: #f4f7f5;
-  --color-fog: #c5d4cf;
-  --color-cedar: #3d6b5e;
-  --color-cedar-deep: #2a4f45;
-  --color-glow: #9bc4b5;
+  --color-ink: #1a1612;
+  --color-ink-soft: #5a5248;
+  --color-paper: #faf7f2;
+  --color-sand: #f3eee6;
+  --color-fog: #e4ddd2;
+  --color-orange: #ff4d00;
+  --color-orange-deep: #e04300;
+  --color-orange-soft: #ffe3d4;
 }
 
 @layer base {
@@ -30,7 +30,7 @@
   }
 
   ::selection {
-    background: color-mix(in srgb, var(--color-cedar) 35%, white);
+    background: color-mix(in srgb, var(--color-orange) 28%, white);
     color: var(--color-ink);
   }
 }
