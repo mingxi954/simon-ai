@@ -4,14 +4,13 @@
   --font-display: "Instrument Serif", Georgia, serif;
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
 
-  --color-ink: #1a1612;
-  --color-ink-soft: #5a5248;
-  --color-paper: #faf7f2;
-  --color-sand: #f3eee6;
-  --color-fog: #e4ddd2;
-  --color-orange: #ff4d00;
-  --color-orange-deep: #e04300;
-  --color-orange-soft: #ffe3d4;
+  --color-ink: #1c1917;
+  --color-ink-soft: #6b6560;
+  --color-paper: #f7f4ee;
+  --color-card: #ffffff;
+  --color-fog: #e8e2d8;
+  --color-orange: #ff4d1a;
+  --color-orange-deep: #e54212;
 }
 
 @layer base {
