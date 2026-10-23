@@ -33,13 +33,14 @@ npx wrangler login
 npm run deploy
 ```
 
-Or connect this repo in the [Cloudflare Pages dashboard](https://dash.cloudflare.com/) with:
+Or connect this repo in the [Cloudflare dashboard](https://dash.cloudflare.com/) with:
 
 | Setting | Value |
 | --- | --- |
-| Framework preset | Vite |
 | Build command | `npm run build` |
-| Build output directory | `dist` |
+| Deploy command | `npx wrangler deploy` |
+
+`wrangler.toml` publishes the `dist` folder as static assets, so Cloudflare does not need a Worker script.
 
 ## Customize
 
