@@ -11,6 +11,8 @@ import {
 } from './content'
 import { renderMarkdown } from './content/markdown'
 import { Kicker, Prose, Shell } from './components/Shell'
+import { LifeLog } from './life/LifeLog'
+
 export function HomePage() {
   const recent = entries.slice(0, 3)
   return (
@@ -357,6 +359,14 @@ export function NowPage() {
           })}
         </ol>
       </section>
+    </Shell>
+  )
+}
+
+export function LogPage() {
+  return (
+    <Shell path="/log">
+      <LifeLog />
     </Shell>
   )
 }

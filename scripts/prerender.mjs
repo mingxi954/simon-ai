@@ -34,6 +34,7 @@ for (const route of server.publicRoutes()) {
   writePage(route.path, file)
 }
 
+writePage('/log', join(process.cwd(), 'dist/log/index.html'))
 writePage('/missing-page', join(process.cwd(), 'dist/404.html'))
 
 const data = server.records()
