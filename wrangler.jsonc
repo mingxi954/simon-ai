@@ -1,0 +1,12 @@
+{
+  "name": "simon-ai",
+  "compatibility_date": "2026-10-23",
+  "pages_build_output_dir": "dist",
+  "d1_databases": [
+    {
+      "binding": "LIFE_DB",
+      "database_name": "simon-life",
+      "database_id": "aec4f161-88ff-4b31-bdf5-039686fdeffd"
+    }
+  ]
+}
