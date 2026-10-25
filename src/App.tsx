@@ -8,7 +8,6 @@ import {
   EntryPage,
   HomePage,
   NotFoundPage,
-  LogPage,
   NowPage,
   ProjectPage,
   ProjectsPage,
@@ -21,7 +20,6 @@ export function App({ url }: { url?: string }) {
   if (path === '/projects') return <ProjectsPage />
   if (path === '/writing') return <WritingPage />
   if (path === '/now') return <NowPage />
-  if (path === '/log') return <LogPage />
   const project = projects.find((item) => path === projectPath(item))
   if (project) return <ProjectPage project={project} />
   const entrySlug = path.startsWith('/writing/') ? path.slice('/writing/'.length) : ''

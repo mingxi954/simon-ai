@@ -128,13 +128,6 @@ export function pageMeta(path: string): PageMeta {
       description: `What has ${profile.name}'s attention, updated ${formatDate(nowSnapshot.updated)}.`,
     }
   }
-  if (normal === '/log') {
-    return {
-      path: normal,
-      title: `Log · ${profile.name}`,
-      description: 'Private log for weight, sleep, meals, and workouts.',
-    }
-  }
   const project = projects.find((item) => normal === projectPath(item))
   if (project) {
     return {

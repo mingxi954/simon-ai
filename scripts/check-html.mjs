@@ -33,10 +33,5 @@ assert.deepEqual(
 
 const sitemap = read('sitemap.xml')
 assert.match(sitemap, /https:\/\/simon-ai\.pages\.dev\/projects\/engineering-ai/, 'sitemap url')
-assert.doesNotMatch(sitemap, /\/log/, 'log stays out of the sitemap')
-
-const log = read('log/index.html')
-assert.match(log, /Workouts, sleep, meals, and weight/, 'log page')
-assert.doesNotMatch(home, /href="\/log"/, 'home does not link the log')
 
 console.log('check-html ok')
