@@ -42,6 +42,26 @@ Or connect this repo in the [Cloudflare dashboard](https://dash.cloudflare.com/)
 
 `wrangler.toml` publishes the `dist` folder as static assets, so Cloudflare does not need a Worker script.
 
+## Content
+
+Profile, projects, and the Now page live in `src/content/`. A public note is a Markdown file in `src/content/entries/` with front matter:
+
+```markdown
+---
+slug: example-note
+title: Example note
+summary: One sentence.
+published: 2026-10-24
+format: note
+project: engineering-ai
+tags: ai
+---
+
+The note itself.
+```
+
+`project` and `tags` are optional. The build checks dates, slugs, and project ids. Do not invent milestones, travel, or other biography to fill a page.
+
 ## Customize
 
-Edit profile copy, projects, and links in `src/data.ts`.
+The live site the build links to is [simon-ai.pages.dev](https://simon-ai.pages.dev).
