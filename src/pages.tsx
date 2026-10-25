@@ -52,9 +52,9 @@ export function HomePage() {
       <section id="work" className="mt-16 md:mt-20">
         <Kicker>— Projects</Kicker>
         <h2 className="mt-3 font-display text-3xl tracking-tight md:text-4xl">In progress</h2>
-        <div className="mt-6 grid gap-4">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+        <div className="mt-6 grid gap-6">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} number={index + 1} />
           ))}
         </div>
         <p className="mt-4 max-w-2xl text-sm leading-relaxed text-ink-soft">
@@ -110,17 +110,85 @@ export function HomePage() {
   )
 }
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectCard({ project, number }: { project: Project; number: number }) {
+  const label = String(number).padStart(2, '0')
   return (
-    <a
-      href={projectPath(project)}
-      className="block rounded-2xl border border-fog bg-card px-5 py-6 transition hover:border-orange/40 md:px-7"
-    >
-      <p className="text-xs font-semibold tracking-[0.14em] text-orange uppercase">{project.status}</p>
-      <h3 className="mt-2 font-display text-3xl">{project.title}</h3>
-      <p className="mt-2 max-w-2xl text-sm leading-relaxed text-ink-soft">{project.summary}</p>
-      <p className="mt-3 text-sm text-ink-soft">{`Updated ${formatDate(project.updated)}`}</p>
-    </a>
+    <article className="relative overflow-hidden rounded-[1.75rem] border border-[#eadfce] bg-card-warm px-6 py-7 shadow-[0_18px_50px_-28px_rgba(90,60,30,0.45)] md:px-8 md:py-8">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-8 right-0 h-28 w-40 rounded-full border-[10px] border-[#8eae96]/70"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -bottom-10 left-1/3 h-24 w-40 rounded-full border-[8px] border-[#8aa0b8]/60"
+      />
+      <div className="relative grid items-center gap-8 md:grid-cols-[minmax(0,1.35fr)_220px]">
+        <div>
+          <p className="flex flex-wrap items-center gap-3 text-xs font-semibold tracking-[0.16em] text-[#8a5a32] uppercase">
+            <span>{`No. ${label}`}</span>
+            <span aria-hidden className="h-px w-8 bg-[#d7c4a8]" />
+            <span className="font-medium tracking-normal text-ink-soft normal-case">
+              {`Updated ${formatDate(project.updated)}`}
+            </span>
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <span className="rounded-full bg-[#8a5a32] px-3 py-1 text-xs font-semibold text-[#fbf6ee]">
+              {project.status}
+            </span>
+            <span className="rounded-full border border-[#d7c4a8] px-3 py-1 text-xs font-medium text-[#8a5a32]">
+              Milestone
+            </span>
+          </div>
+          <h3 className="mt-5 font-display text-4xl leading-tight tracking-tight text-ink md:text-5xl">
+            {project.title}
+          </h3>
+          <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-ink-soft">{project.summary}</p>
+          {project.learned[0] ? (
+            <p className="mt-5 border-t border-[#eadfce] pt-4 text-sm leading-relaxed text-[#8a5a32]">
+              {project.learned[0]}
+            </p>
+          ) : null}
+          <div className="mt-6 flex flex-wrap items-end justify-between gap-4">
+            <p className="text-xs font-semibold tracking-[0.16em] text-ink-soft uppercase">
+              In progress
+              <span className="mt-1 block text-sm font-medium tracking-normal text-ink-soft normal-case">
+                {formatDate(project.updated)}
+              </span>
+            </p>
+            <a
+              href={projectPath(project)}
+              className="inline-flex items-center gap-2 rounded-xl bg-rust px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#a83b26]"
+            >
+              Open
+              <span aria-hidden>→</span>
+            </a>
+          </div>
+        </div>
+        <ProjectCover project={project} label={label} />
+      </div>
+    </article>
+  )
+}
+
+function ProjectCover({ project, label }: { project: Project; label: string }) {
+  return (
+    <div className="relative mx-auto aspect-[3/4] w-full max-w-[220px]">
+      <div
+        aria-hidden
+        className="absolute -top-3 right-2 h-10 w-10 rounded-full border-4 border-[#e0b089]"
+      />
+      <div className="absolute inset-0 rounded-2xl bg-[#f3efe6] shadow-[0_16px_30px_-18px_rgba(60,40,20,0.55)]">
+        <div className="flex h-full flex-col justify-between p-5">
+          <div>
+            <div className="h-1.5 w-10 rounded-full bg-rust" />
+            <p className="mt-6 font-display text-2xl leading-tight text-ink">{project.title}</p>
+          </div>
+          <p className="text-[11px] font-semibold tracking-[0.16em] text-[#8a5a32] uppercase">
+            {`No. ${label}`}
+          </p>
+        </div>
+      </div>
+    </div>
   )
 }
 
@@ -133,9 +201,9 @@ export function ProjectsPage() {
         <p className="mt-4 max-w-2xl text-[17px] leading-relaxed text-ink-soft">
           Only projects with something real to show are listed. The rest wait.
         </p>
-        <div className="mt-8 grid gap-4">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+        <div className="mt-8 grid gap-6">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.id} project={project} number={index + 1} />
           ))}
         </div>
       </section>

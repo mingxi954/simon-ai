@@ -11,6 +11,8 @@
   --color-fog: #e8e2d8;
   --color-orange: #ff4d1a;
   --color-orange-deep: #e54212;
+  --color-rust: #c44b32;
+  --color-card-warm: #fbf6ee;
 }
 
 @layer base {
