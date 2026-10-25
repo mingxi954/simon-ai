@@ -9,7 +9,6 @@ export type Profile = {
   role: string
   location: string
   avatar: string
-  email: string
   introduction: readonly string[]
   socials: readonly SocialLink[]
 }
